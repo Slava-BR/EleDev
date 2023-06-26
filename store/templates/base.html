@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>EleDev</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="{% static 'css/base_style.css' %}" rel="stylesheet">
 </head>
 <body>
@@ -13,17 +14,34 @@
         <div class="logo">
             EleDev
         </div>
+        <!-- блок поиска -->
         <div class="search">
             <form>
                 <input type="text" placeholder="Искать здесь...">
                 <button type="submit"></button>
             </form>
         </div>
-        <div class="cart">
-            CART
-        </div>
-        <div class="user">
-            USER
+        <div class="options">
+            <!-- блок Сравнить -->
+            <div class="compare">
+                <div><img src="{% static 'img/compare 24x24.png' %}"></div>
+                <div>Сравнить</div>
+            </div>
+            <!-- блок Избранное-->
+            <div class="favourites">
+                <div><img src="{% static 'img/favourites 24x24.png' %}"></div>
+                <div>Избранное</div>
+            </div>
+            <!-- блок корзины -->
+            <div class="cart">
+                <div><img src="{% static 'img/cart 24x24.png' %}"></div>
+                <div>CART</div>
+            </div>
+            <!-- блок пользователя -->
+            <div class="user">
+                <div><img src="{% static 'img/user 24x24.png' %}"></div>
+                <div>USER</div>
+            </div>
         </div>
     </div>
 </header>
