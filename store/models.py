@@ -1,12 +1,16 @@
 from django.db import models
 
+
 # Create your models here.
-DEFAULT_DISTINCTIVE_FEATURES = {
-    "color": "",
-    "diagonal": "",
-    "memory": "",
-    "volume": ""
-}
+
+
+def default_distinctive_features():
+    return {
+        "color": "",
+        "diagonal": "",
+        "memory": "",
+        "volume": ""
+    }
 
 
 class Products(models.Model):
@@ -16,7 +20,7 @@ class Products(models.Model):
     count = models.PositiveIntegerField()
     feedback = models.PositiveIntegerField()
     product_code = models.SmallIntegerField(primary_key=True)
-    distinctive_features = models.JSONField(default=DEFAULT_DISTINCTIVE_FEATURES)
+    distinctive_features = models.JSONField(default=default_distinctive_features)
 
     def __str__(self):
         return self.title
