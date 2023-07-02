@@ -16,10 +16,10 @@ def default_distinctive_features():
 class Products(models.Model):
     title = models.CharField(max_length=50)
     producer = models.ForeignKey('Producer', on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
+    price = models.DecimalField(max_digits=8, decimal_places=2)
     count = models.PositiveIntegerField()
     feedback = models.PositiveIntegerField()
-    product_code = models.SmallIntegerField(primary_key=True)
+    product_code = models.IntegerField(primary_key=True)
     distinctive_features = models.JSONField(default=default_distinctive_features)
 
     def __str__(self):
@@ -46,7 +46,7 @@ class Images(models.Model):
 
 class GroupsCharacteristics(models.Model):
     description = models.ForeignKey('Descriptions', on_delete=models.CASCADE)
-    name_group = models.CharField(max_length=20)
+    name_group = models.CharField(max_length=30)
 
     def __str__(self):
         return self.name_group
