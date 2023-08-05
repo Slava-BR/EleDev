@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="product_search">
+        <div class="form_characteristics">
+            {% url 'products_view' 'Catalog'  slug as 1url%}
+            <form action="{{ 1url }}/?p=1" method="get">
+                {{ form.as_p }}
+                <button type="submit">Применить</button>
+            </form>
+
+        </div>
+        {% include 'productsBaseTemplate.html' with products=products %}
+    </div>
+{% endblock %}

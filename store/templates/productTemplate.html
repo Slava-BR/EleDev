@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="product_view">
+        <div class="main_information">
+            <div class="image">
+                <img src="{{ image.image.url }}" alt="X">
+            </div>
+            <div class="info">
+                <h3>{{ product.title }}</h3> <img src="{{ product.brand.logo.url }}" alt="X">
+            </div>
+        </div>
+    </div>
+    {% if characteristics != None %}
+        {% include 'characteristics_and_description.html' with characteristics=characteristics description=description title=product.title%}
+    {% else %}
+        <form class="button_form" onclick="window.location.href=document.URL+'/characteristics'">
+            <img src="{% static 'img/free-icon-down-arrow-4361754.png' %}" alt="X">
+        </form>
+    {% endif %}
+{% endblock %}
+

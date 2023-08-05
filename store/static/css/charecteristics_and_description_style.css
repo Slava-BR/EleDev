@@ -1,0 +1,10 @@
+.characteristics{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.section_sd{
+    display: flex;
+    flex-direction: column;
+}

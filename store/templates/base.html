@@ -4,15 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <title>EleDev</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link href="{% static 'css/base_style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/brands_list_style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/main_page.css' %}" rel="stylesheet">
+    <link href="{% static 'css/products_style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/category_style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/side_bar_characteristics.css' %}" rel="stylesheet">
+    <link href="{% static 'css/brand_style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/charecteristics_and_description_style.css' %}" rel="stylesheet">
 </head>
 <body>
 <header>
     <div class="header-content">
         <!-- блок для логотипа -->
         <div class="logo">
-            EleDev
+            <a href="/store/Catalog/" style="font-weight: bold">EleDev</a>
         </div>
         <!-- блок поиска -->
         <div class="search">
@@ -24,33 +30,47 @@
         <div class="options">
             <!-- блок Сравнить -->
             <div class="compare">
-                <div><img src="{% static 'img/compare 24x24.png' %}"></div>
-                <div>Сравнить</div>
+                <div><a href="/compare"><img src="{% static 'img/compare 24x24.png' %}" alt="compare"></a></div>
+                <div><a href="/compare">Сравнить</a></div>
             </div>
             <!-- блок Избранное-->
             <div class="favourites">
-                <div><img src="{% static 'img/favourites 24x24.png' %}"></div>
-                <div>Избранное</div>
+                <div><a href="/favorites"><img src="{% static 'img/favourites 24x24.png' %}" alt="favourites"></a></div>
+                <div><a href="/favorites">Избранное</a></div>
             </div>
             <!-- блок корзины -->
             <div class="cart">
-                <div><img src="{% static 'img/cart 24x24.png' %}"></div>
-                <div>CART</div>
+                <div><a href="/cart"> <img src="{% static 'img/cart 24x24.png' %}" alt="cart"></a></div>
+                <div><a href="/cart">CART</a></div>
             </div>
             <!-- блок пользователя -->
             <div class="user">
-                <div><img src="{% static 'img/user 24x24.png' %}"></div>
-                <div>USER</div>
+                {% if request.user.is_authenticated %}
+                    <div>
+                        <a href="/profile">
+                            <img src="{% static 'img/user 24x24.png' %}" alt="user">
+                        </a>
+                    </div>
+                    <div><a href="/profile">{{ request.user.username }}</a></div>
+                {% else %}
+                    <div><a href="/login"><img src="{% static 'img/log-in 24x24.png' %}" alt="user"></a></div>
+                    <div><a href="/login">LOGIN</a></div>
+                {% endif %}
             </div>
         </div>
-    </div>
+    </div>s
 </header>
-<div class="block-content">
-
+<div class="body_block">
+    <div class="block-content">
+        {% block content %}
+        {% endblock %}
+    </div>
 </div>
 <footer>
     <div class="footer-content">
-        footer
+        EleDev<br>
+        © 2002–2023 Компания EleDev.<br>
+        Администрация Сайта не несет ответственности за размещаемые Пользователями материалы (в т.ч. информацию и изображения), их содержание и качество.
     </div>
 </footer>
 </body>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for product, count in products.items %}
+        <div style="margin: 7px;">
+        <p>{{ product.title }}</p>
+        <p>{{ count }}</p>
+        </div>
+    {% endfor %}
+{% endblock %}

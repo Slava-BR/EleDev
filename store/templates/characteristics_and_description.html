@@ -1,0 +1,19 @@
+<div class="description_and_characteristics">
+    <div class="description">
+        <h3>Описание {{ title }}: </h3>
+        {{ description }}
+    </div>
+    <div class="characteristics">
+        <h3>Характеристики</h3>
+        {% for title, section in characteristics.items %}
+            <h3>{{ title }}</h3>
+            <div class="section_sd">
+                {% for key, values in section.items %}
+                    <div class="values">
+                        <b>{{ key }}</b>: {{ values }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+</div>

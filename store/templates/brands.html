@@ -1,0 +1,9 @@
+<div class="brands_list">
+    {% for brand in brands %}
+        <div class="brand">
+            <a href="brand/{{ brand.title }}">
+                <img class="brand_image" src="{{ brand.logo.url }}" alt="{{ brand.title }}">
+            </a>
+        </div>
+    {% endfor %}
+</div>

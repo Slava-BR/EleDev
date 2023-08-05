@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="brand_content">
+    <img src="{{ brand.logo.url }}" alt="{{ brand.title }}">
+    {% include "productsBaseTemplate.html" with products=products%}
+</div>
+{% endblock %}

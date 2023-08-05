@@ -1,0 +1,38 @@
+{% load static %}
+<div class="all_products">
+    {% for product_list in products %}
+        <div class="products_list">
+            {% for product in product_list %}
+                <div class="product">
+                    <div class="block_product_image">
+                        <a href="/store/Catalog/{{ slug }}/{{ product.0.slug }}">
+                            <img class="product_image" src="{{ product.1.image.url }}"
+                                 alt="{{ product.0.title }}">
+                        </a>
+                    </div>
+                    <div class="product_title">
+                        <a href="/store/Catalog/{{ slug }}/{{ product.0.slug }}">{{ product.0.title }}</a>
+                    </div>
+                    <div class="buttons">
+                        <img onclick="window.location.href=location.protocol + '//' + location.host + location.pathname+'?cart={{ product.0.product_code }}'" src="{% static 'img/cart 24x24.png' %}"/>
+                        <img onclick="window.location.href=location.protocol + '//' + location.host + location.pathname+'?fav={{ product.0.product_code }}'" src="{% static 'img/favourites 24x24.png' %}"/>
+                        <img onclick="window.location.href=location.protocol + '//' + location.host + location.pathname+'?compare={{ product.0.product_code }}'" src="{% static 'img/compare 24x24.png' %}"/>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    <div class="page">
+        {% if page_obj.has_other_pages %}
+            {% for p in paginator.page_range %}
+                {% if page_obj.number == p %}
+                    <div class="page-num-page-num-selected"><h3>{{ p }}</h3></div>
+                {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                    <div class="page-num">
+                        <a href="?page={{ p }}" style="font-weight: bold">{{ p }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>

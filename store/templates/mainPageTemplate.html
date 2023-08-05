@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="content">
+        <div class="side_bar">
+            {% for category in categories %}
+                <div class="main_category_view">
+                    <div class="main_category_image">
+                        <a href="category/{{ category.slug }}">
+                            <img src="{{ category.image.url }}"  alt="X">
+                        </a>
+                    </div>
+                    <div class="main_category_title">
+                        <a href="category/{{ category.slug }}">{{ category.title }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="main_content" style="">
+            <div class="view_brands">
+                {% include "brands.html" with brands=brands %}
+            </div>
+            <div class="products">
+                {% include "productsBaseTemplate.html" with products=products slug="Catalog" %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

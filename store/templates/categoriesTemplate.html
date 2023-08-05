@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+    <h2>{{ category.title }}</h2>
+
+    <div class="categories">
+        {% for list_categories in categories %}
+            <div class="category_list">
+                {% for category in list_categories %}
+                    <div class="category_view">
+                        {% if category.last %}
+                            {% if category.image %}
+                                <div class="block_category_image">
+                                    <a href="/store/Catalog/products/{{ category.slug }}/?p=1">
+                                        <img class="category_image" src="{{ category.image.url }}" alt="X">
+                                    </a>
+                                </div>
+                            {% endif %}
+                            <div class="category_title">
+                                <a href="/store/Catalog/products/{{ category.slug }}/?p=1">{{ category.title }}</a>
+                            </div>
+                        {% else %}
+                            {% if category.image %}
+                                <div class="block_category_image">
+                                    <a href="{{ category.slug }}">
+                                        <img class="category_image" src="{{ category.image.url }}" alt="X">
+                                    </a>
+                                </div>
+                            {% endif %}
+                            <div class="category_title">
+                                <a href="{{ category.slug }}">{{ category.title }}</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

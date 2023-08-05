@@ -1,0 +1,21 @@
+<div class="all_characteristics">
+    <div class="characteristics_content">
+        {% for title, section in characteristics.items %}
+            <div class="section">
+                <h3>{{ title }}</h3>
+
+                {% for key, values in section.items %}
+                    <div class="title"><h4>    {{ key }}:</h4></div>
+                    <select id="{{ key }}">
+                        {% for value in values %}
+                            <option id="{{ value }}">{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+    <form class="button_form" onclick="">
+        <p><input type="button" class="apply" value=" Применить " onclick=""></p>
+    </form>
+</div>

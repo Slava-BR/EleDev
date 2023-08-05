@@ -1,0 +1,18 @@
+.brands_list{
+    display: flex;
+    flex-direction: row;
+    margin-left: 20px;
+}
+
+.brand{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.brand_image{
+    height: 50px;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}

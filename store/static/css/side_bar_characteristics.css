@@ -1,0 +1,27 @@
+.all_characteristics{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.section, .button_form{
+    margin-top: 10px;
+}
+
+
+.title{
+    margin-top: 7px;
+}
+
+option{
+    margin-top: 5px;
+}
+
+.apply{
+    height: 30px;
+    width: 120px;
+}
